@@ -34,13 +34,15 @@ public class DangNhap extends AppCompatActivity {
         DangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(UserName.getText().length()>0&&Password.getText().length()>0){
-                    try {
-                        login();
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
+//                if(UserName.getText().length()>0&&Password.getText().length()>0){
+//                    try {
+//                        login();
+//                    } catch (JSONException e) {
+//                        throw new RuntimeException(e);
+//                    }
+//                }
+                Intent intent = new Intent(DangNhap.this, Admin.class);
+                        startActivity(intent);
 
             }
         });
