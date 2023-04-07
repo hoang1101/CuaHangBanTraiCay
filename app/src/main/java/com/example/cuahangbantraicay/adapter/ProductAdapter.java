@@ -65,8 +65,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         public ProductViewHoder(@NonNull View itemView) {
             super(itemView);
-            imgUser = itemView.findViewById(R.id.img_product);
-            textView = itemView.findViewById(R.id.tv_name_priduct);
+            imgUser = itemView.findViewById(R.id.imgSP);
+            textView = itemView.findViewById(R.id.tenSP);
         }
     }
 }

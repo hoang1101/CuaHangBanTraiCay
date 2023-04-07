@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.example.cuahangbantraicay.API.LoginAPI;
 import com.example.cuahangbantraicay.R;
-import com.example.cuahangbantraicay.Utils.BASE_URL;
 import com.example.cuahangbantraicay.Utils.VolleyCallback;
 
 import org.json.JSONException;
@@ -82,7 +82,7 @@ public class DangNhap extends AppCompatActivity {
             }
 
             @Override
-            public void onError(JSONObject errorMessage) {
+            public void onError(VolleyError errorMessage) {
 
             }
         },UserName.getText().toString(),Password.getText().toString());
