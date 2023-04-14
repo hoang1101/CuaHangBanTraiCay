@@ -12,7 +12,10 @@ import android.view.Window;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.cuahangbantraicay.Fragment.managerCategory;
+//import com.example.cuahangbantraicay.Fragment.managerCreateProduct;
 import com.example.cuahangbantraicay.Fragment.managerProduct;
+import com.example.cuahangbantraicay.Fragment.managerCategory;
 import com.example.cuahangbantraicay.Fragment.managerReveneu;
 import com.example.cuahangbantraicay.R;
 import com.google.android.material.navigation.NavigationView;
@@ -26,19 +29,47 @@ public class Admin extends AppCompatActivity {
     managerProduct managerproduct = null;
 
     managerReveneu managerreveneu = null;
+    //    managerCreateProduct managerCreateProduct = null;
+    managerCategory managerCategory = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
+        if (ManagerProductDetail.isActive || ManagerProductCreate.isActive ) {
+            initFragment();
+            ManagerProductDetail.isActive = false;
+            ManagerProductCreate.isActive = false;
+            CategoryDetail.isActive = false;
+        }
+        if (CategoryDetail.isActive || CategoryCreate.isActive){
+            initFragmentCategory();
+        }
+
+
         setContentView(R.layout.activity_admin);
         setControl();
         setEvent();
     }
 
+    private void initFragment() {
+        managerproduct = new managerProduct();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.NoiDung, new managerProduct())
+                .commit();
+    }
+    private void initFragmentCategory() {
+        managerCategory = new managerCategory();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.NoiDung, new managerCategory())
+                .commit();
+    }
+
     private void setEvent() {
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.app_name,R.string.app_name);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -46,26 +77,36 @@ public class Admin extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.product:
                         Toast.makeText(Admin.this, "Product", Toast.LENGTH_SHORT).show();
-                        if (managerproduct ==null) {
+                        if (managerproduct == null) {
                             managerproduct = new managerProduct();
                         }
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.NoiDung,new managerProduct())
+                                .replace(R.id.NoiDung, new managerProduct())
+                                .commit();
+                        break;
+
+                    case R.id.category:
+                        Toast.makeText(Admin.this, "create", Toast.LENGTH_SHORT).show();
+                        if (managerCategory == null) {
+                            managerCategory = new managerCategory();
+                        }
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.NoiDung, new managerCategory())
                                 .commit();
                         break;
                     case R.id.revenue:
                         Toast.makeText(Admin.this, "Reveneu", Toast.LENGTH_SHORT).show();
-                        if (managerreveneu ==null) {
+                        if (managerreveneu == null) {
                             managerreveneu = new managerReveneu();
                         }
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.NoiDung,new managerReveneu())
+                                .replace(R.id.NoiDung, new managerReveneu())
                                 .commit();
                         break;
                 }

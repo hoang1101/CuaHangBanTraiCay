@@ -94,6 +94,7 @@ public class Product implements Serializable {
     public Product(int id, String name) {
         this.id = id;
         this.name = name;
+        this.image = image;
     }
 
     public int getResourceId() {

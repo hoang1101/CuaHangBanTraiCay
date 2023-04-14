@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuahangbantraicay.R;
 import com.example.cuahangbantraicay.activity.DangNhap;
+import com.example.cuahangbantraicay.activity.ManagerProductDetail;
 
 public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapter.ViewHolderAdmin> {
 
@@ -42,7 +43,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
     @Override
     public void onBindViewHolder(@NonNull AdminProductAdapter.ViewHolderAdmin holder, int position) {
         Product productTmp = productList.get(position);
-//        holder.imgUser.setImageResource();
+        Glide.with(mContext).load(productTmp.getImage()).into(holder.imgUser);
         holder.tenSP.setText(productTmp.getName());
         holder.GiaNhap.setText(String.valueOf(productTmp.getPrice_in()));
         holder.GiaBan.setText(String.valueOf(productTmp.getPrice_sell()));
@@ -57,11 +58,9 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, DangNhap.class);
-                intent.putExtra("hihi", productTmp);
-
+                Intent intent = new Intent(mContext, ManagerProductDetail.class);
+                intent.putExtra("pd", productTmp);
                 mContext.startActivity(intent);
-
             }
         });
         holder.ivDel.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +71,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
 
             }
         });
+
     }
 
     private void clickDeleteItem(int idProduct) {
@@ -102,6 +102,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
             TrangThai = itemView.findViewById(R.id.status);
             ThongTin = itemView.findViewById(R.id.content);
             Discount = itemView.findViewById(R.id.discout);
+
 
 
         }

@@ -1,5 +1,6 @@
 package com.example.cuahangbantraicay.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.example.cuahangbantraicay.API.ProductApi;
@@ -17,11 +19,16 @@ import com.example.cuahangbantraicay.Modal.Product;
 import com.example.cuahangbantraicay.R;
 import com.example.cuahangbantraicay.Utils.BASE_URL;
 import com.example.cuahangbantraicay.Utils.VolleyCallback;
+import com.example.cuahangbantraicay.activity.DangNhap;
+import com.example.cuahangbantraicay.activity.MainActivity;
+import com.example.cuahangbantraicay.activity.ManagerProductCreate;
+import com.example.cuahangbantraicay.activity.ManagerProductDetail;
 import com.example.cuahangbantraicay.adapter.AdminProductAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +49,7 @@ public class managerProduct extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TextView btnTao;
     RecyclerView recyclerView;
 
     List<Product> productList = new ArrayList<>();
@@ -109,8 +117,8 @@ public class managerProduct extends Fragment {
                     tmpP.setId(productObj.getInt("id"));
                     tmpP.setName(productObj.getString("name"));
                     tmpP.setImage(productObj.getString("image"));
-                    tmpP.setPrice_in((float) productObj.getDouble("price_in"));
-                    tmpP.setPrice_sell((float) productObj.getDouble("price_sell"));
+                    tmpP.setPrice_in(Float.parseFloat(productObj.getString("price_in")));
+                    tmpP.setPrice_sell(Float.parseFloat(productObj.getString("price_sell")));
                     tmpP.setContent(productObj.getString("content"));
                     tmpP.setCategory_id(productObj.getInt("category_id"));
                     tmpP.setDiscount(productObj.getInt("discout"));
@@ -139,9 +147,22 @@ public class managerProduct extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adminProductAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        // tao san pham moi
+        btnTao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ManagerProductCreate.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void mapping(View view) {
         recyclerView = (RecyclerView) view.findViewById(R.id.recvProduct);
+        btnTao = view.findViewById(R.id.taoProduct);
     }
 }

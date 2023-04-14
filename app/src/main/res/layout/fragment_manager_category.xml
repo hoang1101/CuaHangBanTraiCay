@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Fragment.managerProduct">
+
+    <!--    <SearchView-->
+
+    <!--        android:id="@+id/seacrch_SV"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="0dp"-->
+    <!--        android:layout_marginTop="0dp"-->
+    <!--        android:background="#CAC4C4" />-->
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycviewCategory"
+        android:layout_width="match_parent"
+        android:layout_height="715dp"
+        android:divider="#FF3D00"
+        android:dividerHeight="2dp"
+        android:listSelector="#818080">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <TextView
+
+            android:id="@+id/createCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#189C29"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Tao loai san pham"
+            android:textColor="#fff"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

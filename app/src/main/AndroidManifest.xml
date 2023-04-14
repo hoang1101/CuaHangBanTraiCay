@@ -36,6 +36,18 @@
             android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.ManagerProductDetail"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ManagerProductCreate"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CategoryCreate"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CategoryDetail"
+            android:exported="false" />
+        <activity
             android:name=".activity.DangNhap"
             android:exported="true">
             <intent-filter>

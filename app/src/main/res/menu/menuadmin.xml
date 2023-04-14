@@ -7,6 +7,11 @@
 
     </item>
     <item
+        android:id="@+id/category"
+        android:title="Loai san pham">
+
+    </item>
+    <item
         android:id="@+id/revenue"
         android:title="Thống kê">
 
