@@ -10,11 +10,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.example.cuahangbantraicay.API.CategoryApi;
+import com.example.cuahangbantraicay.Fragment.managerCategory;
 import com.example.cuahangbantraicay.Modal.Category;
 import com.example.cuahangbantraicay.Modal.Product;
 import com.example.cuahangbantraicay.R;
@@ -32,6 +35,7 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolderAdmin> {
     Context mContext;
+    public static Boolean isActive = false;
     List<Category> categoryList;
 
     public CategoryAdapter(Context mContext, List<Category> categoryList) {
@@ -67,7 +71,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             public void onClick(View v) {
 //                Toast.makeText(mContext, "em yeu anh", Toast.LENGTH_SHORT).show();
                 clickDeleteItem(category.getId());
-                System.out.println(category.getId());
+//                notifyDataSetChanged();
 
             }
         });
@@ -81,8 +85,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(mContext, "Xoathanhcong", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(CategoryCreate.this, Admin.class);
-//                    startActivity(intent);
+                    isActive = true;
+                    Intent intent = new Intent(mContext, Admin.class);
+                    mContext.startActivity(intent);
                 }
 
                 @Override

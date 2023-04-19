@@ -16,4 +16,9 @@
         android:title="Thống kê">
 
     </item>
+    <item
+        android:id="@+id/pdf"
+        android:title="Xuat file">
+
+    </item>
 </menu>

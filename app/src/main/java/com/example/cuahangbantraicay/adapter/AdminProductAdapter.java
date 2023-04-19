@@ -2,7 +2,10 @@ package com.example.cuahangbantraicay.adapter;
 
 import android.content.Context;
 
+import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
+import com.example.cuahangbantraicay.API.CategoryApi;
+import com.example.cuahangbantraicay.API.ProductApi;
 import com.example.cuahangbantraicay.Modal.Product;
 
 import java.util.List;
@@ -19,10 +22,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuahangbantraicay.R;
+import com.example.cuahangbantraicay.Utils.BASE_URL;
+import com.example.cuahangbantraicay.Utils.VolleyCallback;
+import com.example.cuahangbantraicay.activity.Admin;
 import com.example.cuahangbantraicay.activity.DangNhap;
+import com.example.cuahangbantraicay.activity.ManagerProductCreate;
 import com.example.cuahangbantraicay.activity.ManagerProductDetail;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapter.ViewHolderAdmin> {
+    public  static Boolean isActive = false;
 
     Context mContext;
     List<Product> productList;
@@ -69,12 +80,34 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
                 Toast.makeText(mContext, "em yeu anh", Toast.LENGTH_SHORT).show();
                 clickDeleteItem(productTmp.getResourceId());
 
+
             }
         });
 
     }
 
     private void clickDeleteItem(int idProduct) {
+        try{
+            ProductApi.DeleteProduct(mContext.getApplicationContext(), BASE_URL.BASE_URL + "api/admin/delete-product/"+ idProduct, new VolleyCallback() {
+                @Override
+                public void onSuccess(JSONObject result) throws JSONException {
+                    Toast.makeText(mContext, "Xoathanhcong", Toast.LENGTH_SHORT).show();
+                    isActive = true;
+                    Intent intent = new Intent(mContext, Admin.class);
+                    mContext.startActivity(intent);
+                }
+
+                @Override
+                public void onError(VolleyError errorMessage) {
+                    Toast.makeText(mContext, "khongthanhcong", Toast.LENGTH_SHORT).show();
+                    System.out.println(errorMessage);
+                }
+            });
+
+            }
+        catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

@@ -18,6 +18,8 @@ import com.example.cuahangbantraicay.Fragment.managerProduct;
 import com.example.cuahangbantraicay.Fragment.managerCategory;
 import com.example.cuahangbantraicay.Fragment.managerReveneu;
 import com.example.cuahangbantraicay.R;
+import com.example.cuahangbantraicay.adapter.AdminProductAdapter;
+import com.example.cuahangbantraicay.adapter.CategoryAdapter;
 import com.google.android.material.navigation.NavigationView;
 
 public class Admin extends AppCompatActivity {
@@ -31,20 +33,25 @@ public class Admin extends AppCompatActivity {
     managerReveneu managerreveneu = null;
     //    managerCreateProduct managerCreateProduct = null;
     managerCategory managerCategory = null;
+    AdminProductAdapter adminProductAdapter =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        if (ManagerProductDetail.isActive || ManagerProductCreate.isActive ) {
+        if (ManagerProductDetail.isActive || ManagerProductCreate.isActive || AdminProductAdapter.isActive) {
             initFragment();
             ManagerProductDetail.isActive = false;
             ManagerProductCreate.isActive = false;
-            CategoryDetail.isActive = false;
+            AdminProductAdapter.isActive = false;
+
         }
-        if (CategoryDetail.isActive || CategoryCreate.isActive){
+        if (CategoryDetail.isActive || CategoryCreate.isActive || CategoryAdapter.isActive){
             initFragmentCategory();
+            CategoryDetail.isActive = false;
+            CategoryCreate.isActive= false;
+            CategoryAdapter.isActive = false;
         }
 
 

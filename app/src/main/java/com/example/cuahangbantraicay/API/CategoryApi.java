@@ -30,7 +30,7 @@ public class CategoryApi {
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
-                        System.out.println("Nam : " + response);
+//                        System.out.println("Nam : " + response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -80,7 +80,7 @@ public class CategoryApi {
     }
 
 
-    public static void CategoryDelete(Context context,String url , VolleyCallback callback) throws JSONException {
+    public static void CategoryDelete(Context context, String url, VolleyCallback callback) throws JSONException {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
 //        JSONObject postData = new JSONObject();
@@ -88,7 +88,7 @@ public class CategoryApi {
 //        System.out.println(postData);
 //        JSONObject requestBody = new JSONObject();
 //        requestBody.put("category", idCategory);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE, url , null,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -130,7 +130,7 @@ public class CategoryApi {
         JSONObject requestBody = new JSONObject();
         requestBody.put("data", postData);
 
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url,requestBody.getJSONObject("data"),
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url, requestBody.getJSONObject("data"),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -150,7 +150,6 @@ public class CategoryApi {
                     }
 
                 });
-
 
 
         requestQueue.add(request);

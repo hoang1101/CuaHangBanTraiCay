@@ -97,6 +97,9 @@ public class CategoryCreate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveCreateCategory();
+                isActive = true;
+                Intent intent = new Intent(CategoryCreate.this, Admin.class);
+                startActivity(intent);
             }
         });
     }

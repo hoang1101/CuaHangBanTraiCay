@@ -1,14 +1,51 @@
 package com.example.cuahangbantraicay.Fragment;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.cuahangbantraicay.Modal.Product;
 import com.example.cuahangbantraicay.R;
+import com.example.cuahangbantraicay.activity.CategoryDetail;
+import com.example.cuahangbantraicay.activity.ManagerProductCreate;
+import com.example.cuahangbantraicay.activity.PDF;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import org.json.JSONException;
+import org.w3c.dom.Attr;
+import org.w3c.dom.CDATASection;
+import org.w3c.dom.Comment;
+import org.w3c.dom.DOMConfiguration;
+import org.w3c.dom.DOMException;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.DocumentFragment;
+import org.w3c.dom.DocumentType;
+import org.w3c.dom.Element;
+import org.w3c.dom.EntityReference;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.ProcessingInstruction;
+import org.w3c.dom.Text;
+import org.w3c.dom.UserDataHandler;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +62,8 @@ public class managerReveneu extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Context context;
+    private Button btnXuat;
 
     public managerReveneu() {
         // Required empty public constructor
@@ -61,7 +100,32 @@ public class managerReveneu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment\
+//        setControl(view);
+//        setEvent();f
         View view = inflater.inflate(R.layout.fragment_manager_reveneu, container, false);
+        xuatfile(view);
         return view;
     }
+
+    private void xuatfile(View view) {
+
+        setControl(view);
+        setEvent();
+    }
+
+    private void setEvent() {
+        btnXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PDF.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setControl(View view) {
+        btnXuat = view.findViewById(R.id.btnDN);
+    }
+
+
 }

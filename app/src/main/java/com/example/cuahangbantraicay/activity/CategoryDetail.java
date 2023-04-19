@@ -72,6 +72,9 @@ public class CategoryDetail extends AppCompatActivity {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(CategoryDetail.this, "thanhcong", Toast.LENGTH_SHORT).show();
+                    isActive = true;
+                    Intent intent = new Intent(CategoryDetail.this, Admin.class);
+                    startActivity(intent);
                 }
 
                 @Override
@@ -102,9 +105,7 @@ public class CategoryDetail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SaveCategory();
-//                isActive = true;
-//                Intent intent = new Intent(CategoryDetail.this, Admin.class);
-//                startActivity(intent);
+
             }
         });
     }

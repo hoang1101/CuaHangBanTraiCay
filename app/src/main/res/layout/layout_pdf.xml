@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Xuat File"
-        android:id="@+id/btnDN"
+        android:id="@+id/xuatfile"
         />
     <ProgressBar
         android:layout_width="wrap_content"
