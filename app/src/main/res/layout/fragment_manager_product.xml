@@ -6,6 +6,20 @@
     android:orientation="vertical"
     tools:context=".Fragment.managerProduct">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recvProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#FF3D00"
+            android:dividerHeight="2dp"
+            android:listSelector="#818080">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
     <!--    <SearchView-->
 
     <!--        android:id="@+id/seacrch_SV"-->
@@ -17,19 +31,11 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recvProduct"
-            android:layout_width="match_parent"
-            android:layout_height="715dp"
-            android:divider="#FF3D00"
-            android:dividerHeight="2dp"
-            android:listSelector="#818080">
 
-        </androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_gravity="bottom">
 
             <TextView

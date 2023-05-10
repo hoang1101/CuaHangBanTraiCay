@@ -6,6 +6,20 @@
     android:orientation="vertical"
     tools:context=".Fragment.managerProduct">
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycviewCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#FF3D00"
+            android:dividerHeight="2dp"
+            android:listSelector="#818080"
+            android:layout_weight="1">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
     <!--    <SearchView-->
 
     <!--        android:id="@+id/seacrch_SV"-->
@@ -17,34 +31,26 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycviewCategory"
-        android:layout_width="match_parent"
-        android:layout_height="715dp"
-        android:divider="#FF3D00"
-        android:dividerHeight="2dp"
-        android:listSelector="#818080">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
     <LinearLayout
+        android:id="@+id/createCategory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom">
 
         <TextView
 
-            android:id="@+id/createCategory"
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="#189C29"
-            android:gravity="center"
+            android:gravity="bottom|center"
             android:padding="16dp"
             android:text="Tao loai san pham"
             android:textColor="#fff"
             android:textSize="16dp" />
     </LinearLayout>
+
 
 
 </LinearLayout>

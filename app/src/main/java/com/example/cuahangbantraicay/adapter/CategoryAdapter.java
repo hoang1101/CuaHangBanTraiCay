@@ -81,7 +81,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private void clickDeleteItem(int idCategory) {
         System.out.println(idCategory);
         try {
-            CategoryApi.CategoryDelete(mContext.getApplicationContext(), BASE_URL.BASE_URL + "api/admin/delete-category/"+ idCategory, new VolleyCallback() {
+            CategoryApi.CategoryDelete(mContext.getApplicationContext(), BASE_URL.BASE_URL + "delete-category/"+ idCategory, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(mContext, "Xoathanhcong", Toast.LENGTH_SHORT).show();

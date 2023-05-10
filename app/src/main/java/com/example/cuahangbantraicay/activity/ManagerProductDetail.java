@@ -83,7 +83,7 @@ public class ManagerProductDetail extends AppCompatActivity {
 
     private void initCategory() {
         try {
-            CategoryApi.getCategory(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/all-category", new VolleyCallback() {
+            CategoryApi.getCategory(getApplicationContext(), BASE_URL.BASE_URL + "all-category", new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     JSONArray data = result.getJSONArray("data");
@@ -238,7 +238,7 @@ public class ManagerProductDetail extends AppCompatActivity {
 //        progressBar.setVi     sibility(View.VISIBLE);
 
         try {
-            ProductApi.EditProduct(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/edit-product/" + product.getResourceId(), product,base64Img, new VolleyCallback() {
+            ProductApi.EditProduct(getApplicationContext(), BASE_URL.BASE_URL + "edit-product/" + product.getResourceId(), product,base64Img, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(ManagerProductDetail.this, "thanhcong", Toast.LENGTH_SHORT).show();

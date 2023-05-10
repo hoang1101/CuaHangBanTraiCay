@@ -104,7 +104,7 @@ public class managerProduct extends Fragment {
     }
 
     private void CallApi(View view) throws JSONException {
-        ProductApi.getProducts(getContext(), BASE_URL.BASE_URL + "api/admin/all-product", new VolleyCallback() {
+        ProductApi.getProducts(getContext(), BASE_URL.BASE_URL + "all-product", new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject result) throws JSONException {
 

@@ -91,7 +91,7 @@ public class ManagerProductCreate extends AppCompatActivity {
 
     private void initCategory() {
         try {
-            CategoryApi.getCategory(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/all-category", new VolleyCallback() {
+            CategoryApi.getCategory(getApplicationContext(), BASE_URL.BASE_URL + "all-category", new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     JSONArray data = result.getJSONArray("data");
@@ -264,7 +264,7 @@ public class ManagerProductCreate extends AppCompatActivity {
 
 
         try {
-            ProductApi.createProduct(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/create-product", productTmp, base64Img, new VolleyCallback() {
+            ProductApi.createProduct(getApplicationContext(), BASE_URL.BASE_URL + "create-product", productTmp, base64Img, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject response) throws JSONException {
 //
@@ -287,7 +287,7 @@ public class ManagerProductCreate extends AppCompatActivity {
 
 
     private void CallAPIGetIdByName(String name) throws JSONException {
-        ProductApi.getByName(ManagerProductCreate.this, BASE_URL.BASE_URL + "api/admin/getbyname/" + name, new VolleyCallback() {
+        ProductApi.getByName(ManagerProductCreate.this, BASE_URL.BASE_URL + "getbyname/" + name, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject result) throws JSONException {
                 System.out.println(result);

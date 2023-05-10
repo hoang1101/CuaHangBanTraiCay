@@ -6,12 +6,14 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_background"/>
+        android:src="@drawable/ngocanh"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Ho ten"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:text="CỬA HÀNG TRÁI CÂY"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:textColor="@color/purple_700"/>
 
 </LinearLayout>

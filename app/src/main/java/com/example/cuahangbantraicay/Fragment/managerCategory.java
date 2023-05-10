@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -45,7 +47,9 @@ public class managerCategory extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TextView btnCreate;
+    LinearLayout btnCreate;
+
+
     RecyclerView recyclerViewCategory;
 
     List<Category> categoryList = new ArrayList<>();
@@ -75,6 +79,8 @@ public class managerCategory extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -86,6 +92,7 @@ public class managerCategory extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_manager_category, container, false);
+
         try {
             CallApi(view);
         } catch (JSONException e) {
@@ -97,7 +104,7 @@ public class managerCategory extends Fragment {
 
     private void CallApi(View view) throws JSONException {
         try {
-            CategoryApi.getCategory(getContext(), BASE_URL.BASE_URL + "api/admin/all-category", new VolleyCallback() {
+            CategoryApi.getCategory(getContext(), BASE_URL.BASE_URL + "all-category", new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     JSONArray data = result.getJSONArray("data");
@@ -110,6 +117,7 @@ public class managerCategory extends Fragment {
                         categoryList.add(tmpC);
 
                     }
+//                    System.out.println(categoryList.size());
                     mapping(view);
                     setEvent();
                 }
@@ -125,6 +133,7 @@ public class managerCategory extends Fragment {
     }
 
     private void setEvent() {
+
         CategoryAdapter categoryAdapter = new CategoryAdapter(getContext(), categoryList);
         recyclerViewCategory.setHasFixedSize(true);
         recyclerViewCategory.setAdapter(categoryAdapter);
@@ -135,8 +144,10 @@ public class managerCategory extends Fragment {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("haha");
                 Intent intent = new Intent(getContext(), CategoryCreate.class);
                 startActivity(intent);
+
             }
         });
     }

@@ -68,7 +68,7 @@ public class CategoryDetail extends AppCompatActivity {
         System.out.println(category.getId());
 
         try {
-            CategoryApi.CategoryUpdate(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/edit-category/"+category.getId() ,category, new VolleyCallback() {
+            CategoryApi.CategoryUpdate(getApplicationContext(), BASE_URL.BASE_URL + "edit-category/"+category.getId() ,category, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(CategoryDetail.this, "thanhcong", Toast.LENGTH_SHORT).show();

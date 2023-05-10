@@ -62,7 +62,7 @@ public class CategoryCreate extends AppCompatActivity {
         Category category = new Category();
         category.setName(String.valueOf(edtName.getText()));
         try {
-            CategoryApi.createCategory(getApplicationContext(), BASE_URL.BASE_URL + "api/admin/create-category", category, new VolleyCallback() {
+            CategoryApi.createCategory(getApplicationContext(), BASE_URL.BASE_URL + "create-category", category, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(CategoryCreate.this, "thanh cong", Toast.LENGTH_SHORT).show();

@@ -88,7 +88,7 @@ public class AdminProductAdapter extends RecyclerView.Adapter<AdminProductAdapte
 
     private void clickDeleteItem(int idProduct) {
         try{
-            ProductApi.DeleteProduct(mContext.getApplicationContext(), BASE_URL.BASE_URL + "api/admin/delete-product/"+ idProduct, new VolleyCallback() {
+            ProductApi.DeleteProduct(mContext.getApplicationContext(), BASE_URL.BASE_URL + "delete-product/"+ idProduct, new VolleyCallback() {
                 @Override
                 public void onSuccess(JSONObject result) throws JSONException {
                     Toast.makeText(mContext, "Xoathanhcong", Toast.LENGTH_SHORT).show();
